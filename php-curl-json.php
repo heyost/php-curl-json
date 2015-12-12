@@ -19,7 +19,8 @@ class phpCurl{
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     $server_output = curl_exec($ch);
     curl_close ($ch);
-    return $server_output;
+    $dataset = json_decode($server_output);
+    return $dataset;
   }
 }
 $phpCurl = new phpCurl();
