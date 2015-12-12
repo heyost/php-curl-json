@@ -1,6 +1,6 @@
 <?php
 class phpCurl{
-  public function rest($endpoint = '', $method = '', $var = '', $optional = ''){
+  public function rest($endpoint = '', $method = '', $var = '', $optional = '', $header = ''){
     // initiated variable curl
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $endpoint);
@@ -10,10 +10,10 @@ class phpCurl{
       curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($var));
     }
     // set data inside header
-    curl_setopt($ch, CURLOPT_HEADER, true);
+    curl_setopt($ch, CURLOPT_HEADER, $header);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     if(isset($optional)){
-      curl_setopt($ch, CURLOPT_HTTPHEADER, $optional);  
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $optional);
     }
     // return data into json
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
