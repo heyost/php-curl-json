@@ -12,7 +12,7 @@ class phpCurl{
     // set data inside header
     curl_setopt($ch, CURLOPT_HEADER, $data['header']);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    if($data['http_header']){
+    if(@$data['http_header']){
       curl_setopt($ch, CURLOPT_HTTPHEADER, $data['http_header']);
     }
     // return data into json
