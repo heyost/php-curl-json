@@ -8,6 +8,9 @@ class phpCurl{
       // post data
       curl_setopt($ch, CURLOPT_POST, true);
       curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data['variable']));
+    } else if($data['method'] === 'delete'){
+      curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
+      curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data['variable']));
     }
     // set data inside header
     curl_setopt($ch, CURLOPT_HEADER, $data['header']);
